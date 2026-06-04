@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Ubah Data</title>
+</head>
+<body>
+
+<h2>Ubah Data</h2>
+
+<form action="/ubah/{{ buku.id }}" method="post">
+
+    ID:<br>
+    <input type="text"
+           name="id"
+           value="{{ buku.id }}"
+           readonly><br><br>
+
+    Judul Buku:<br>
+    <input type="text"
+           name="judul"
+           value="{{ buku.judul }}"><br><br>
+
+    Penulis:<br>
+    <input type="text"
+           name="penulis"
+           value="{{ buku.penulis }}"><br><br>
+
+    Penerbit:<br>
+    <input type="text"
+           name="penerbit"
+           value="{{ buku.penerbit }}"><br><br>
+
+    <input type="submit" value="Simpan">
+
+</form>
+
+<p>
+    <a href="/">Kembali</a>
+</p>
+
+</body>
+</html>

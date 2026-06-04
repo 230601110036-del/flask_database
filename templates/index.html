@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Demo Flask SQLite</title>
+</head>
+<body>
+
+<h2>Demo Flask SQLite</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Judul</th>
+        <th>Penulis</th>
+        <th>Penerbit</th>
+        <th>Ubah</th>
+        <th>Hapus</th>
+    </tr>
+
+    {% for buku in container %}
+    <tr>
+        <td>{{ buku.id }}</td>
+        <td>{{ buku.judul }}</td>
+        <td>{{ buku.penulis }}</td>
+        <td>{{ buku.penerbit }}</td>
+        <td><a href="/ubah/{{ buku.id }}">Ubah</a></td>
+        <td><a href="/hapus/{{ buku.id }}">Hapus</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>
+    <a href="/tambah">Tambah Data</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Tambah Data</title>
+</head>
+<body>
+
+<h2>Tambah Data</h2>
+
+<form action="{{ url_for('tambah') }}" method="post">
+
+    ID:<br>
+    <input type="text" name="id"><br><br>
+
+    Judul Buku:<br>
+    <input type="text" name="judul"><br><br>
+
+    Penulis:<br>
+    <input type="text" name="penulis"><br><br>
+
+    Penerbit:<br>
+    <input type="text" name="penerbit"><br><br>
+
+    <input type="submit" value="Simpan">
+
+</form>
+
+<p>
+    <a href="/">Kembali</a>
+</p>
+
+</body>
+</html>
