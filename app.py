@@ -224,7 +224,7 @@ def hapus(id):
 
     conn.execute(
         '''
-        DELETE FROM reservasi
+        UPDATE reservasi
         SET is_deleted = 1
         WHERE id=?
         ''',
