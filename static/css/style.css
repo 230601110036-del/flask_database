@@ -273,68 +273,6 @@ body{
    TABLE PAGE
 ========================== */
 
-.table-page{
-
-    padding:40px;
-
-    background:#f4f6fb;
-
-    min-height:100vh;
-}
-
-.table-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:15px;
-
-    box-shadow:0 0 15px rgba(0,0,0,.1);
-}
-
-.table-container h1{
-
-    text-align:center;
-
-    margin-bottom:20px;
-}
-
-.button-area{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:20px;
-}
-
-.btn-home,
-.btn-add{
-
-    text-decoration:none;
-
-    padding:10px 20px;
-
-    border-radius:8px;
-
-    color:white;
-}
-
-.btn-home{
-
-    background:#555;
-}
-
-.btn-add{
-
-    background:#4c7cff;
-}
-
 table{
 
     width:100%;
@@ -442,41 +380,6 @@ table tr:hover{
     background:#dc3545;
 }
 
-.search-box{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-bottom:20px;
-}
-
-.search-box input{
-
-    flex:1;
-
-    padding:10px;
-
-    border:1px solid #ccc;
-
-    border-radius:8px;
-}
-
-.search-box button{
-
-    background:#4c7cff;
-
-    color:white;
-
-    border:none;
-
-    padding:10px 20px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-}
-
 /* ==========================
    MODERN TABLE UI
 ========================== */
@@ -485,7 +388,9 @@ table tr:hover{
 
     background:#efefef;
 
-    padding:20px;
+    min-height:100vh;
+
+    padding:0;
 }
 
 .table-container{
@@ -580,9 +485,9 @@ table tr:hover{
 
 .search-btn{
 
-    width:55px;
+    width:60px;
 
-    height:50px;
+    height:55px;
 
     border:none;
 
@@ -597,9 +502,9 @@ table tr:hover{
 
 .icon-btn{
 
-    width:55px;
+    width:60px;
 
-    height:50px;
+    height:55px;
 
     display:flex;
 
@@ -658,4 +563,42 @@ table td{
 table tr:hover{
 
     background:#f8fbff;
+}
+
+.title-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.title-icon{
+
+    font-size:48px;
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:30px 45px;
+
+    min-height:120px;
+
+    border-bottom:1px solid #ddd;
+}
+
+.table-header h1{
+
+    margin:0;
+
+    font-size:42px;
+
+    color:#333;
 }
