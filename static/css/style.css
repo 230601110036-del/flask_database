@@ -17,7 +17,7 @@ body{
 
     min-height:100vh;
 
-    background:url("../img/studio-bg.jpg");
+    background:url("../img/bg.jpg");
 
     background-size:cover;
     background-position:center;
@@ -173,7 +173,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    background:url("../img/studio-bg.jpg");
+    background:url("../img/bg.jpg");
 
     background-size:cover;
     background-position:center;
