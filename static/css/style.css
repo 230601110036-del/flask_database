@@ -392,3 +392,52 @@ table tr:hover{
 
     text-decoration:none;
 }
+
+/* ==========================
+   TOAST NOTIFICATION
+========================== */
+
+.toast-message{
+
+    position:fixed;
+
+    top:20px;
+
+    right:-400px;
+
+    min-width:300px;
+
+    padding:15px 25px;
+
+    border-radius:10px;
+
+    color:white;
+
+    font-weight:bold;
+
+    z-index:9999;
+
+    transition:.5s;
+
+    box-shadow:
+    0 0 10px rgba(0,0,0,.3);
+}
+
+.toast-message.show{
+
+    right:20px;
+}
+
+/* Tambah & Edit */
+
+.toast-message[data-type="success"]{
+
+    background:#28a745;
+}
+
+/* Hapus */
+
+.toast-message[data-type="delete"]{
+
+    background:#dc3545;
+}

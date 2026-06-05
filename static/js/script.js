@@ -46,3 +46,25 @@ const notifikasi = (pesan) => {
     alert(pesan);
 
 };
+
+// ======================
+// TOAST NOTIFICATION
+// ======================
+
+document
+.querySelectorAll(".toast-message")
+.forEach((toast) => {
+
+    setTimeout(() => {
+
+        toast.classList.add("show");
+
+    }, 100);
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 3500);
+
+});

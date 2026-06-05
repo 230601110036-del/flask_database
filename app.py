@@ -3,11 +3,13 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
+from flask import flash
 
 import sqlite3
 import os
 
 application = Flask(__name__)
+application.secret_key = "studio_reservasi"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_NAME = os.path.join(BASE_DIR, "database.db")
@@ -110,6 +112,11 @@ def tambah():
         conn.commit()
         conn.close()
 
+        flash(
+            "Reservasi berhasil ditambahkan!",
+            "success"
+        )
+
         return redirect(
             url_for('index')
         )
@@ -172,6 +179,11 @@ def ubah(id):
         conn.commit()
         conn.close()
 
+        flash(
+            "Reservasi berhasil diedit!",
+            "success"
+        )
+
         return redirect(
             url_for('index')
         )
@@ -203,6 +215,11 @@ def hapus(id):
 
     conn.commit()
     conn.close()
+
+    flash(
+        "Reservasi berhasil dihapus!",
+        "delete"
+    )
 
     return redirect(
         url_for('index')

@@ -16,6 +16,27 @@ href="{{ url_for('static', filename='css/style.css') }}">
 
 <div class="table-container">
 
+{% with messages =
+get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+
+    {% for category, message in messages %}
+
+        <div
+        class="toast-message"
+        data-type="{{ category }}">
+
+            {{ message }}
+
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+{% endwith %}
+
 <h1>📋 Data Reservasi Studio</h1>
 
 <div class="button-area">
