@@ -47,23 +47,40 @@ def home():
 @application.route('/reservasi')
 def index():
 
+    keyword = request.args.get(
+        'keyword',
+        ''
+    )
+
     conn = get_db()
 
     data = conn.execute(
         '''
         SELECT *
         FROM reservasi
+        WHERE is_deleted = 0
+        AND
+        (
+            nama LIKE ?
+            OR telepon LIKE ?
+            OR paket LIKE ?
+        )
         ORDER BY id DESC
-        '''
+        ''',
+        (
+            f'%{keyword}%',
+            f'%{keyword}%',
+            f'%{keyword}%'
+        )
     ).fetchall()
 
     conn.close()
 
     return render_template(
         'index.html',
-        container=data
+        container=data,
+        keyword=keyword
     )
-
 
 # ==========================
 # CREATE DATA
@@ -208,6 +225,7 @@ def hapus(id):
     conn.execute(
         '''
         DELETE FROM reservasi
+        SET is_deleted = 1
         WHERE id=?
         ''',
         (id,)
@@ -223,6 +241,80 @@ def hapus(id):
 
     return redirect(
         url_for('index')
+    )
+
+@application.route('/trash')
+def trash():
+
+    conn = get_db()
+
+    data = conn.execute(
+        '''
+        SELECT *
+        FROM reservasi
+        WHERE is_deleted = 1
+        ORDER BY id DESC
+        '''
+    ).fetchall()
+
+    conn.close()
+
+    return render_template(
+        'trash.html',
+        container=data
+    )
+
+@application.route('/restore/<int:id>')
+def restore(id):
+
+    conn = get_db()
+
+    conn.execute(
+        '''
+        UPDATE reservasi
+        SET is_deleted = 0
+        WHERE id = ?
+        ''',
+        (id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    flash(
+        "Reservasi berhasil direstore!",
+        "success"
+    )
+
+    return redirect(
+        url_for('trash')
+    )
+
+@application.route(
+    '/hapus_permanen/<int:id>'
+)
+def hapus_permanen(id):
+
+    conn = get_db()
+
+    conn.execute(
+        '''
+        DELETE FROM reservasi
+        WHERE id = ?
+        ''',
+        (id,)
+    )
+
+    conn.commit()
+    conn.close()
+
+    flash(
+        "Reservasi dihapus permanen!",
+        "delete"
+    )
+
+    return redirect(
+        url_for('trash')
     )
 
 # ==========================

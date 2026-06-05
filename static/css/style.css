@@ -441,3 +441,38 @@ table tr:hover{
 
     background:#dc3545;
 }
+
+.search-box{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.search-box input{
+
+    flex:1;
+
+    padding:10px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+}
+
+.search-box button{
+
+    background:#4c7cff;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tempat Sampah</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+</head>
+
+<body class="table-page">
+
+<div class="table-container">
+
+<h1>🗑 Tempat Sampah Reservasi</h1>
+
+<a href="{{ url_for('index') }}"
+class="btn-home">
+
+Kembali
+
+</a>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Nama</th>
+<th>Paket</th>
+<th>Aksi</th>
+
+</tr>
+
+{% for data in container %}
+
+<tr>
+
+<td>{{ data.id }}</td>
+<td>{{ data.nama }}</td>
+<td>{{ data.paket }}</td>
+
+<td>
+
+<a href="{{ url_for(
+'restore',
+id=data.id) }}"
+class="edit-btn">
+
+♻ Restore
+
+</a>
+
+<a href="{{ url_for(
+'hapus_permanen',
+id=data.id) }}"
+class="delete-btn">
+
+Hapus Permanen
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

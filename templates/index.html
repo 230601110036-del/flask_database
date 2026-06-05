@@ -55,7 +55,32 @@ get_flashed_messages(with_categories=true) %}
 
     </a>
 
+    <a href="{{ url_for('trash') }}"
+        class="btn-trash">
+
+        🗑 Tempat Sampah
+
+    </a>
+
 </div>
+
+<form method="GET"
+      action="{{ url_for('index') }}"
+      class="search-box">
+
+    <input
+        type="text"
+        name="keyword"
+        value="{{ keyword }}"
+        placeholder="Cari nama, telepon, paket...">
+
+    <button type="submit">
+
+        Cari
+
+    </button>
+
+</form>
 
 <table>
 
