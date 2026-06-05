@@ -18,9 +18,17 @@ filename='css/style.css') }}">
 
 <div class="table-header">
 
-    <h1>
-        🗑 Tempat Sampah Reservasi
-    </h1>
+    <div class="title-area">
+
+        <span class="title-icon">
+            🗑
+        </span>
+
+        <h1>
+            Tempat Sampah Reservasi
+        </h1>
+
+    </div>
 
     <a href="{{ url_for('home') }}"
        class="header-home">
@@ -33,14 +41,18 @@ filename='css/style.css') }}">
 
 <div class="search-area">
 
-<form class="search-box">
+<form method="GET"
+      action="{{ url_for('trash') }}"
+      class="search-box">
 
     <input
         type="text"
+        name="keyword"
+        value="{{ keyword }}"
         placeholder="Cari nama, telepon, paket...">
 
     <button
-        type="button"
+        type="submit"
         class="search-btn">
 
         🔍

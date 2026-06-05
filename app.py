@@ -246,6 +246,11 @@ def hapus(id):
 @application.route('/trash')
 def trash():
 
+    keyword = request.args.get(
+        'keyword',
+        ''
+    )
+
     conn = get_db()
 
     data = conn.execute(
@@ -253,15 +258,26 @@ def trash():
         SELECT *
         FROM reservasi
         WHERE is_deleted = 1
+        AND (
+            nama LIKE ?
+            OR telepon LIKE ?
+            OR paket LIKE ?
+        )
         ORDER BY id DESC
-        '''
+        ''',
+        (
+            f'%{keyword}%',
+            f'%{keyword}%',
+            f'%{keyword}%'
+        )
     ).fetchall()
 
     conn.close()
 
     return render_template(
         'trash.html',
-        container=data
+        container=data,
+        keyword=keyword
     )
 
 @application.route('/restore/<int:id>')
