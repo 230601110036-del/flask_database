@@ -490,6 +490,12 @@ table tr:hover{
 
 .table-container{
 
+    width:95%;
+
+    max-width:none;
+
+    margin:20px auto;
+
     background:white;
 
     border-radius:20px;
@@ -497,7 +503,7 @@ table tr:hover{
     overflow:hidden;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
+    0 10px 25px rgba(0,0,0,.15);
 
     padding:0;
 }
@@ -510,20 +516,22 @@ table tr:hover{
 
     align-items:center;
 
-    padding:25px 35px;
+    padding:20px 35px;
 
     background:white;
 
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #e5e5e5;
 }
 
 .table-header h1{
 
     margin:0;
 
+    font-size:24px;
+
     color:#333;
 
-    font-size:40px;
+    font-weight:700;
 }
 
 .header-home{
@@ -539,11 +547,11 @@ table tr:hover{
 
     display:flex;
 
-    gap:10px;
-
-    padding:25px;
-
     align-items:center;
+
+    gap:15px;
+
+    padding:20px 35px;
 }
 
 .search-box{
@@ -555,17 +563,17 @@ table tr:hover{
 
 .search-box input{
 
-    flex:1;
+    width:100%;
 
-    height:50px;
+    height:55px;
 
     border:none;
 
-    background:#f4f4f4;
+    background:#f3f3f3;
 
-    border-radius:10px;
+    border-radius:12px;
 
-    padding:0 15px;
+    padding:0 20px;
 
     font-size:16px;
 }
