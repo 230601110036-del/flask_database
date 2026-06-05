@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Studio Reservasi</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="main-card">
+
+        <div class="camera-top">
+            <img src="{{ url_for('static',
+            filename='img/camera.png') }}"
+            alt="Camera">
+        </div>
+
+        <h1>
+            STUDIO
+            <span>RESERVASI</span>
+        </h1>
+
+        <p class="subtitle">
+            Booking Foto Studio Anda dengan Mudah
+        </p>
+
+        <div class="menu-container">
+
+            <a href="{{ url_for('tambah') }}"
+               class="menu-card">
+
+                <i class="fas fa-calendar-check"></i>
+
+                <h2>BOOKING FOTO</h2>
+
+                <p>
+                    Reservasi jadwal foto studio
+                </p>
+
+            </a>
+
+            <a href="{{ url_for('index') }}"
+               class="menu-card">
+
+                <i class="fas fa-user-cog"></i>
+
+                <h2>KELOLA RESERVASI</h2>
+
+                <p>
+                    Lihat dan kelola data reservasi
+                </p>
+
+            </a>
+
+        </div>
+
+        <div class="footer-text">
+
+            ⭐ Abadikan Momen Terbaik Anda Bersama Kami ⭐
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

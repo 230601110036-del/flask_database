@@ -1,41 +1,93 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
-    <title>Ubah Data</title>
+
+<meta charset="UTF-8">
+
+<title>Ubah Reservasi</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
-<body>
 
-<h2>Ubah Data</h2>
+<body class="form-page">
 
-<form action="/ubah/{{ buku.id }}" method="post">
+<div class="form-container">
 
-    ID:<br>
-    <input type="text"
-           name="id"
-           value="{{ buku.id }}"
-           readonly><br><br>
+<h1>✏️ Ubah Reservasi</h1>
 
-    Judul Buku:<br>
-    <input type="text"
-           name="judul"
-           value="{{ buku.judul }}"><br><br>
+<form method="POST">
 
-    Penulis:<br>
-    <input type="text"
-           name="penulis"
-           value="{{ buku.penulis }}"><br><br>
+<label>Nama Pelanggan</label>
 
-    Penerbit:<br>
-    <input type="text"
-           name="penerbit"
-           value="{{ buku.penerbit }}"><br><br>
+<input
+type="text"
+name="nama"
+value="{{ data.nama }}"
+required>
 
-    <input type="submit" value="Simpan">
+<label>Nomor Telepon</label>
+
+<input
+type="text"
+name="telepon"
+value="{{ data.telepon }}"
+required>
+
+<label>Paket Foto</label>
+
+<select name="paket">
+
+<option selected>
+{{ data.paket }}
+</option>
+
+<option>Basic</option>
+<option>Premium</option>
+<option>Wedding</option>
+<option>Graduation</option>
+<option>Family</option>
+
+</select>
+
+<label>Tanggal Pemotretan</label>
+
+<input
+type="date"
+name="tanggal"
+value="{{ data.tanggal }}"
+required>
+
+<label>Jam Reservasi</label>
+
+<input
+type="time"
+name="jam"
+value="{{ data.jam }}"
+required>
+
+<button type="submit">
+
+Simpan Perubahan
+
+</button>
 
 </form>
 
-<p>
-    <a href="/">Kembali</a>
-</p>
+<a href="{{ url_for('index') }}"
+class="back-button">
+
+← Kembali
+
+</a>
+
+</div>
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}"></script>
 
 </body>
+
 </html>

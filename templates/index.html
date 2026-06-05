@@ -1,36 +1,96 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
-    <title>Demo Flask SQLite</title>
+
+<meta charset="UTF-8">
+
+<title>Kelola Reservasi</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
-<body>
 
-<h2>Demo Flask SQLite</h2>
+<body class="table-page">
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Judul</th>
-        <th>Penulis</th>
-        <th>Penerbit</th>
-        <th>Ubah</th>
-        <th>Hapus</th>
-    </tr>
+<div class="table-container">
 
-    {% for buku in container %}
-    <tr>
-        <td>{{ buku.id }}</td>
-        <td>{{ buku.judul }}</td>
-        <td>{{ buku.penulis }}</td>
-        <td>{{ buku.penerbit }}</td>
-        <td><a href="/ubah/{{ buku.id }}">Ubah</a></td>
-        <td><a href="/hapus/{{ buku.id }}">Hapus</a></td>
-    </tr>
-    {% endfor %}
+<h1>📋 Data Reservasi Studio</h1>
+
+<div class="button-area">
+
+    <a href="{{ url_for('home') }}"
+       class="btn-home">
+
+       Home
+
+    </a>
+
+    <a href="{{ url_for('tambah') }}"
+       class="btn-add">
+
+       + Booking Baru
+
+    </a>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Nama</th>
+<th>Telepon</th>
+<th>Paket</th>
+<th>Tanggal</th>
+<th>Jam</th>
+<th>Aksi</th>
+
+</tr>
+
+{% for data in container %}
+
+<tr>
+
+<td>{{ data.id }}</td>
+<td>{{ data.nama }}</td>
+<td>{{ data.telepon }}</td>
+<td>{{ data.paket }}</td>
+<td>{{ data.tanggal }}</td>
+<td>{{ data.jam }}</td>
+
+<td>
+
+<a href="{{ url_for('ubah', id=data.id) }}"
+   class="edit-btn">
+
+   Edit
+
+</a>
+
+<a href="{{ url_for('hapus', id=data.id) }}"
+   class="delete-btn"
+   onclick="return konfirmasiHapus()">
+
+   Hapus
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
 </table>
 
-<p>
-    <a href="/tambah">Tambah Data</a>
-</p>
+</div>
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}"></script>
 
 </body>
+
 </html>

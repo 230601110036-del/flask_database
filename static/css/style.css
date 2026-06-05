@@ -1,0 +1,394 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ==========================
+   HOME PAGE
+========================== */
+
+body{
+
+    min-height:100vh;
+
+    background:url("../img/studio-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+.overlay{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.55);
+
+}
+
+.main-card{
+
+    position:relative;
+
+    width:900px;
+
+    padding:80px 50px 50px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(10,20,40,.60);
+
+    backdrop-filter:blur(10px);
+
+    border:2px solid #4c7cff;
+
+    color:white;
+
+    box-shadow:
+        0 0 25px #4c7cff,
+        0 0 50px #4c7cff;
+}
+
+.camera-top{
+
+    position:absolute;
+
+    top:-70px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.camera-top img{
+
+    width:120px;
+
+    filter:
+    drop-shadow(0 0 10px #4c7cff)
+    drop-shadow(0 0 20px #4c7cff);
+}
+
+.main-card h1{
+
+    font-size:60px;
+
+    margin-bottom:10px;
+}
+
+.main-card h1 span{
+
+    color:#ffcb45;
+}
+
+.subtitle{
+
+    font-size:20px;
+
+    color:#e5e5e5;
+
+    margin-bottom:40px;
+}
+
+.menu-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.menu-card{
+
+    width:280px;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(60,90,255,.25);
+
+    border:1px solid #4c7cff;
+
+    transition:.3s;
+}
+
+.menu-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 0 25px #4c7cff;
+}
+
+.menu-card i{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+}
+
+.menu-card h2{
+
+    margin-bottom:10px;
+}
+
+.footer-text{
+
+    margin-top:40px;
+
+    font-size:18px;
+}
+
+/* ==========================
+   FORM PAGE
+========================== */
+
+.form-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:url("../img/studio-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.form-container{
+
+    width:550px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.25);
+}
+
+.form-container h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#333;
+}
+
+.form-container label{
+
+    display:block;
+
+    margin-top:12px;
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+}
+
+.form-container input,
+.form-container select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:15px;
+}
+
+.form-container button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#4c7cff;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.form-container button:hover{
+
+    background:#2f5eff;
+}
+
+.back-button{
+
+    display:block;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#4c7cff;
+
+    font-weight:bold;
+}
+
+/* ==========================
+   TABLE PAGE
+========================== */
+
+.table-page{
+
+    padding:40px;
+
+    background:#f4f6fb;
+
+    min-height:100vh;
+}
+
+.table-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+.table-container h1{
+
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.button-area{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+.btn-home,
+.btn-add{
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    color:white;
+}
+
+.btn-home{
+
+    background:#555;
+}
+
+.btn-add{
+
+    background:#4c7cff;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+table th{
+
+    background:#4c7cff;
+
+    color:white;
+
+    padding:12px;
+}
+
+table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:center;
+}
+
+table tr:hover{
+
+    background:#f8f9ff;
+}
+
+.edit-btn{
+
+    background:#28a745;
+
+    color:white;
+
+    padding:7px 12px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+
+    margin-right:5px;
+}
+
+.delete-btn{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:7px 12px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+}

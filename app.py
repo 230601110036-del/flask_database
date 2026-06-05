@@ -1,136 +1,220 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask
+from flask import render_template
+from flask import request
+from flask import redirect
+from flask import url_for
+
 import sqlite3
 import os
 
 application = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-application.config['DB_NAME'] = os.path.join(BASE_DIR, 'database.db')
-
-conn = None
-cursor = None
+DB_NAME = os.path.join(BASE_DIR, "database.db")
 
 
-def openDb():
-    global conn, cursor
-    conn = sqlite3.connect(application.config['DB_NAME'])
-    cursor = conn.cursor()
+# ==========================
+# KONEKSI DATABASE
+# ==========================
+
+def get_db():
+
+    conn = sqlite3.connect(DB_NAME)
+
+    conn.row_factory = sqlite3.Row
+
+    return conn
 
 
-def closeDb():
-    global conn, cursor
-    cursor.close()
-    conn.close()
-
+# ==========================
+# HOME
+# ==========================
 
 @application.route('/')
+def home():
+
+    return render_template(
+        'home.html'
+    )
+
+
+# ==========================
+# READ DATA
+# ==========================
+
+@application.route('/reservasi')
 def index():
-    openDb()
 
-    container = []
+    conn = get_db()
 
-    for id, judul, penulis, penerbit in cursor.execute(
-        'SELECT * FROM buku'
-    ):
-        container.append({
-            'id': id,
-            'judul': judul,
-            'penulis': penulis,
-            'penerbit': penerbit
-        })
+    data = conn.execute(
+        '''
+        SELECT *
+        FROM reservasi
+        ORDER BY id DESC
+        '''
+    ).fetchall()
 
-    closeDb()
+    conn.close()
 
-    return render_template('index.html', container=container)
+    return render_template(
+        'index.html',
+        container=data
+    )
 
 
-@application.route('/tambah', methods=['GET', 'POST'])
+# ==========================
+# CREATE DATA
+# ==========================
+
+@application.route(
+    '/tambah',
+    methods=['GET', 'POST']
+)
 def tambah():
 
     if request.method == 'POST':
 
-        id = request.form['id']
-        judul = request.form['judul']
-        penulis = request.form['penulis']
-        penerbit = request.form['penerbit']
+        nama = request.form['nama']
+        telepon = request.form['telepon']
+        paket = request.form['paket']
+        tanggal = request.form['tanggal']
+        jam = request.form['jam']
 
-        openDb()
+        conn = get_db()
 
-        cursor.execute(
-            'INSERT INTO buku VALUES(?,?,?,?)',
-            (id, judul, penulis, penerbit)
+        conn.execute(
+            '''
+            INSERT INTO reservasi
+            (
+                nama,
+                telepon,
+                paket,
+                tanggal,
+                jam
+            )
+            VALUES
+            (
+                ?,?,?,?,?
+            )
+            ''',
+            (
+                nama,
+                telepon,
+                paket,
+                tanggal,
+                jam
+            )
         )
 
         conn.commit()
-        closeDb()
+        conn.close()
 
-        return redirect(url_for('index'))
+        return redirect(
+            url_for('index')
+        )
 
-    return render_template('tambah_form.html')
-
-
-@application.route('/ubah/<id>', methods=['GET', 'POST'])
-def ubah(id):
-
-    openDb()
-
-    cursor.execute(
-        'SELECT * FROM buku WHERE id=?',
-        (id,)
+    return render_template(
+        'tambah_form.html'
     )
 
-    row = cursor.fetchone()
 
-    buku = {
-        'id': row[0],
-        'judul': row[1],
-        'penulis': row[2],
-        'penerbit': row[3]
-    }
+# ==========================
+# UPDATE DATA
+# ==========================
+
+@application.route(
+    '/ubah/<int:id>',
+    methods=['GET', 'POST']
+)
+def ubah(id):
+
+    conn = get_db()
+
+    data = conn.execute(
+        '''
+        SELECT *
+        FROM reservasi
+        WHERE id=?
+        ''',
+        (id,)
+    ).fetchone()
 
     if request.method == 'POST':
 
-        judul = request.form['judul']
-        penulis = request.form['penulis']
-        penerbit = request.form['penerbit']
+        nama = request.form['nama']
+        telepon = request.form['telepon']
+        paket = request.form['paket']
+        tanggal = request.form['tanggal']
+        jam = request.form['jam']
 
-        cursor.execute(
+        conn.execute(
             '''
-            UPDATE buku
-            SET judul=?, penulis=?, penerbit=?
+            UPDATE reservasi
+            SET
+                nama=?,
+                telepon=?,
+                paket=?,
+                tanggal=?,
+                jam=?
             WHERE id=?
             ''',
-            (judul, penulis, penerbit, id)
+            (
+                nama,
+                telepon,
+                paket,
+                tanggal,
+                jam,
+                id
+            )
         )
 
         conn.commit()
-        closeDb()
+        conn.close()
 
-        return redirect(url_for('index'))
+        return redirect(
+            url_for('index')
+        )
 
-    closeDb()
+    conn.close()
 
     return render_template(
         'ubah_form.html',
-        buku=buku
+        data=data
     )
 
 
-@application.route('/hapus/<id>')
+# ==========================
+# DELETE DATA
+# ==========================
+
+@application.route('/hapus/<int:id>')
 def hapus(id):
 
-    openDb()
+    conn = get_db()
 
-    cursor.execute(
-        'DELETE FROM buku WHERE id=?',
+    conn.execute(
+        '''
+        DELETE FROM reservasi
+        WHERE id=?
+        ''',
         (id,)
     )
 
     conn.commit()
-    closeDb()
+    conn.close()
 
-    return redirect(url_for('index'))
+    return redirect(
+        url_for('index')
+    )
 
+
+# ==========================
+# MAIN PROGRAM
+# ==========================
 
 if __name__ == '__main__':
-    application.run(debug=True)
+
+    application.run(
+        debug=True
+    )

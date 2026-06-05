@@ -1,32 +1,91 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
+
 <head>
-    <title>Tambah Data</title>
+
+<meta charset="UTF-8">
+
+<title>Booking Foto</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
-<body>
 
-<h2>Tambah Data</h2>
+<body class="form-page">
 
-<form action="{{ url_for('tambah') }}" method="post">
+<div class="form-container">
 
-    ID:<br>
-    <input type="text" name="id"><br><br>
+    <h1>📷 Booking Foto Studio</h1>
 
-    Judul Buku:<br>
-    <input type="text" name="judul"><br><br>
+    <form method="POST" id="bookingForm">
 
-    Penulis:<br>
-    <input type="text" name="penulis"><br><br>
+        <label>Nama Pelanggan</label>
 
-    Penerbit:<br>
-    <input type="text" name="penerbit"><br><br>
+        <input
+            type="text"
+            id="nama"
+            name="nama"
+            placeholder="Masukkan nama pelanggan"
+            required>
 
-    <input type="submit" value="Simpan">
+        <label>Nomor Telepon</label>
 
-</form>
+        <input
+            type="text"
+            name="telepon"
+            placeholder="08xxxxxxxxxx"
+            required>
 
-<p>
-    <a href="/">Kembali</a>
-</p>
+        <label>Paket Foto</label>
+
+        <select name="paket">
+
+            <option value="Basic">Basic</option>
+
+            <option value="Premium">Premium</option>
+
+            <option value="Wedding">Wedding</option>
+
+            <option value="Graduation">Graduation</option>
+
+            <option value="Family">Family</option>
+
+        </select>
+
+        <label>Tanggal Pemotretan</label>
+
+        <input
+            type="date"
+            name="tanggal"
+            required>
+
+        <label>Jam Reservasi</label>
+
+        <input
+            type="time"
+            name="jam"
+            required>
+
+        <button type="submit">
+
+            Simpan Reservasi
+
+        </button>
+
+    </form>
+
+    <a href="{{ url_for('home') }}"
+       class="back-button">
+
+       ← Kembali ke Beranda
+
+    </a>
+
+</div>
+
+<script src="{{ url_for('static',
+filename='js/script.js') }}"></script>
 
 </body>
 </html>
