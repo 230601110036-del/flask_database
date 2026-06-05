@@ -37,30 +37,55 @@ get_flashed_messages(with_categories=true) %}
 
 {% endwith %}
 
-<h1>📋 Data Reservasi Studio</h1>
+<div class="table-header">
 
-<div class="button-area">
+    <h1>
+        📋 Data Reservasi Studio
+    </h1>
 
     <a href="{{ url_for('home') }}"
-       class="btn-home">
+       class="header-home">
 
        Home
 
     </a>
 
-    <a href="{{ url_for('tambah') }}"
-       class="btn-add">
+</div>
 
-       + Booking Baru
+<div class="search-area">
 
-    </a>
+<form method="GET"
+      action="{{ url_for('index') }}"
+      class="search-box">
 
-    <a href="{{ url_for('trash') }}"
-        class="btn-trash">
+    <input
+        type="text"
+        name="keyword"
+        value="{{ keyword }}"
+        placeholder="Cari nama, telepon, paket...">
 
-        🗑 Tempat Sampah
+    <button type="submit"
+            class="search-btn">
 
-    </a>
+        🔍
+
+    </button>
+
+</form>
+
+<a href="{{ url_for('tambah') }}"
+   class="icon-btn add-btn">
+
+   +
+
+</a>
+
+<a href="{{ url_for('trash') }}"
+   class="icon-btn trash-btn">
+
+   🗑
+
+</a>
 
 </div>
 

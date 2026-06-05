@@ -476,3 +476,178 @@ table tr:hover{
 
     cursor:pointer;
 }
+
+/* ==========================
+   MODERN TABLE UI
+========================== */
+
+.table-page{
+
+    background:#efefef;
+
+    padding:20px;
+}
+
+.table-container{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
+
+    padding:0;
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 35px;
+
+    background:white;
+
+    border-bottom:1px solid #ddd;
+}
+
+.table-header h1{
+
+    margin:0;
+
+    color:#333;
+
+    font-size:40px;
+}
+
+.header-home{
+
+    text-decoration:none;
+
+    color:#666;
+
+    font-size:20px;
+}
+
+.search-area{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:25px;
+
+    align-items:center;
+}
+
+.search-box{
+
+    flex:1;
+
+    display:flex;
+}
+
+.search-box input{
+
+    flex:1;
+
+    height:50px;
+
+    border:none;
+
+    background:#f4f4f4;
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    font-size:16px;
+}
+
+.search-btn{
+
+    width:55px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1d75ea;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.icon-btn{
+
+    width:55px;
+
+    height:50px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:10px;
+
+    font-size:22px;
+}
+
+.add-btn{
+
+    background:#1d75ea;
+}
+
+.trash-btn{
+
+    background:#71808f;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+table th{
+
+    background:linear-gradient(
+        to right,
+        #1d75ea,
+        #2d8cff
+    );
+
+    color:white;
+
+    padding:15px;
+
+    font-size:15px;
+}
+
+table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #eee;
+}
+
+table tr:hover{
+
+    background:#f8fbff;
+}

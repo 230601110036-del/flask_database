@@ -16,14 +16,47 @@ filename='css/style.css') }}">
 
 <div class="table-container">
 
-<h1>🗑 Tempat Sampah Reservasi</h1>
+<div class="table-header">
+
+    <h1>
+        🗑 Tempat Sampah Reservasi
+    </h1>
+
+    <a href="{{ url_for('home') }}"
+       class="header-home">
+
+       Home
+
+    </a>
+
+</div>
+
+<div class="search-area">
+
+<form class="search-box">
+
+    <input
+        type="text"
+        placeholder="Cari nama, telepon, paket...">
+
+    <button
+        type="button"
+        class="search-btn">
+
+        🔍
+
+    </button>
+
+</form>
 
 <a href="{{ url_for('index') }}"
-class="btn-home">
+   class="icon-btn add-btn">
 
-Kembali
+   ↩
 
 </a>
+
+</div>
 
 <table>
 
