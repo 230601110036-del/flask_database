@@ -61,6 +61,13 @@ filename='css/style.css') }}">
 
 </form>
 
+<a href="{{ url_for('trash') }}"
+   class="icon-btn reset-btn">
+
+   ↺
+
+</a>
+
 <a href="{{ url_for('index') }}"
    class="icon-btn add-btn">
 
@@ -114,6 +121,20 @@ Hapus Permanen
 </tr>
 
 {% endfor %}
+
+{% if container|length == 0 %}
+
+<tr>
+
+<td colspan="4">
+
+    Data tidak ditemukan
+
+</td>
+
+</tr>
+
+{% endif %}
 
 </table>
 

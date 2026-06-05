@@ -62,38 +62,46 @@ get_flashed_messages(with_categories=true) %}
 
 <div class="search-area">
 
-<form method="GET"
-      action="{{ url_for('index') }}"
-      class="search-box">
+    <form method="GET"
+          action="{{ url_for('index') }}"
+          class="search-box">
 
-    <input
-        type="text"
-        name="keyword"
-        value="{{ keyword }}"
-        placeholder="Cari nama, telepon, paket...">
+        <input
+            type="text"
+            name="keyword"
+            value="{{ keyword }}"
+            placeholder="Cari nama, telepon, paket...">
 
-    <button type="submit"
+        <button
+            type="submit"
             class="search-btn">
 
-        🔍
+            🔍
 
-    </button>
+        </button>
 
-</form>
+    </form>
 
-<a href="{{ url_for('tambah') }}"
-   class="icon-btn add-btn">
+    <a href="{{ url_for('index') }}"
+       class="icon-btn reset-btn">
 
-   +
+       ↺
 
-</a>
+    </a>
 
-<a href="{{ url_for('trash') }}"
-   class="icon-btn trash-btn">
+    <a href="{{ url_for('tambah') }}"
+       class="icon-btn add-btn">
 
-   🗑
+       +
 
-</a>
+    </a>
+
+    <a href="{{ url_for('trash') }}"
+       class="icon-btn trash-btn">
+
+       🗑
+
+    </a>
 
 </div>
 
@@ -144,6 +152,20 @@ get_flashed_messages(with_categories=true) %}
 </tr>
 
 {% endfor %}
+
+{% if container|length == 0 %}
+
+<tr>
+
+<td colspan="7">
+
+    Data tidak ditemukan
+
+</td>
+
+</tr>
+
+{% endif %}
 
 </table>
 

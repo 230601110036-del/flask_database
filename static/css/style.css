@@ -463,7 +463,7 @@ table tr:hover{
 
     flex:1;
 
-    display:flex;
+    position:relative;
 }
 
 .search-box input{
@@ -476,22 +476,28 @@ table tr:hover{
 
     background:#f3f3f3;
 
-    border-radius:12px;
+    border-radius:30px;
 
-    padding:0 20px;
+    padding:0 70px 0 20px;
 
     font-size:16px;
 }
 
 .search-btn{
 
-    width:60px;
+    position:absolute;
 
-    height:55px;
+    top:5px;
+
+    right:5px;
+
+    width:45px;
+
+    height:45px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:50%;
 
     background:#1d75ea;
 
@@ -601,4 +607,14 @@ table tr:hover{
     font-size:42px;
 
     color:#333;
+}
+
+.reset-btn{
+
+    background:#6c757d;
+}
+
+.reset-btn:hover{
+
+    opacity:.9;
 }
