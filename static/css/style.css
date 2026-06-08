@@ -29,25 +29,14 @@
 body{
     min-height:100vh;
 
-    background:
-        linear-gradient(
-            rgba(0,0,0,.35),
-            rgba(0,0,0,.35)
-        ),
-        url("../img/bg.jpg");
+    background:url("../img/bg.jpg");
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-    background-attachment:fixed;
-
-    overflow-x:hidden;
 }
 
 .overlay{
-
-
-
     width:100%;
 
     min-height:100vh;
@@ -60,133 +49,65 @@ body{
 
     align-items:center;
 
-
-
     background:rgba(0,0,0,.55);
 
 
-
 }
-
-
 
 .main-card{
-
     position:relative;
-
     width:900px;
 
-
-
-    padding:150px 50px 50px;
-
-
+    padding:100px 40px 35px;
 
     text-align:center;
-
     border-radius:30px;
 
-
-
     background:rgba(10,20,40,.60);
-
     backdrop-filter:blur(10px);
 
-
-
     border:2px solid #4c7cff;
-
     color:white;
 
-
-
     box-shadow:
-
         0 0 25px #4c7cff,
-
         0 0 50px #4c7cff;
-
 }
 
-
-
 .camera-top{
-
     position:absolute;
-
-
-
-    top:-120px;
-
-
-
+    top:-90px;
     left:50%;
-
     transform:translateX(-50%);
-
-
 
     z-index:10;
 
 }
 
-
-
 .camera-top img{
-
-
-
-    width:280px;
-
-
-
+    width:190px;
     filter:
 
     drop-shadow(0 0 10px #4c7cff)
-
     drop-shadow(0 0 20px #4c7cff);
 
 }
 
-
-
 .main-card h1{
-
-
-
-    font-size:60px;
-
-
-
-    margin-bottom:10px;
+    font-size:48px;
+    margin-bottom:8px;
 
 }
 
-
-
 .main-card h1 span{
-
-
-
     color:#ffcb45;
 
 }
 
-
-
 .subtitle{
-
-
-
-    font-size:20px;
-
-
-
+    font-size:18px;
     color:#e5e5e5;
-
-
-
-    margin-bottom:40px;
+    margin-bottom:25px;
 
 }
 
@@ -218,7 +139,7 @@ body{
 
 
 
-    width:280px;
+    width:240px;
 
 
 
@@ -230,7 +151,7 @@ body{
 
 
 
-    padding:30px;
+    padding:22px;
 
 
 
@@ -270,11 +191,11 @@ body{
 
 
 
-    font-size:50px;
+    font-size:42px;
 
 
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 
 }
 
@@ -294,11 +215,11 @@ body{
 
 
 
-    margin-top:40px;
+    margin-top:25px;
 
 
 
-    font-size:18px;
+    font-size:16px;
 
 }
 
