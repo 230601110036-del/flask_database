@@ -1276,11 +1276,6 @@ table tr:hover{
     font-weight:700;
 }
 
-.table-wrapper{
-    width:100%;
-    overflow-x:auto;
-}
-
 /* =====================================
    TABLET
 ===================================== */
