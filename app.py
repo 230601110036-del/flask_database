@@ -130,7 +130,7 @@ def tambah():
         conn.close()
 
         flash(
-            "Reservasi berhasil ditambahkan!",
+            "Reservasi berhasil ditambahkan",
             "success"
         )
 
@@ -197,7 +197,7 @@ def ubah(id):
         conn.close()
 
         flash(
-            "Reservasi berhasil diedit!",
+            "Reservasi berhasil diedit",
             "success"
         )
 
@@ -235,7 +235,7 @@ def hapus(id):
     conn.close()
 
     flash(
-        "Reservasi berhasil dihapus!",
+        "Reservasi berhasil dihapus",
         "delete"
     )
 
@@ -298,7 +298,7 @@ def restore(id):
     conn.close()
 
     flash(
-        "Reservasi berhasil direstore!",
+        "Reservasi berhasil direstore",
         "success"
     )
 
@@ -325,7 +325,7 @@ def hapus_permanen(id):
     conn.close()
 
     flash(
-        "Reservasi dihapus permanen!",
+        "Reservasi dihapus permanen",
         "delete"
     )
 
