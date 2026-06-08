@@ -1,188 +1,375 @@
 <!DOCTYPE html>
+
 <html lang="id">
+
+
 
 <head>
 
+
+
 <meta charset="UTF-8">
+
+
 
 <title>Kelola Reservasi</title>
 
+
+
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+href="{{ url_for('static', filename='css/style.css') }}">
+
+
 
 </head>
 
+
+
 <body class="table-page">
+
+
 
 <div class="table-container">
 
+
+
 {% with messages =
+
 get_flashed_messages(with_categories=true) %}
+
+
 
 {% if messages %}
 
+
+
     {% for category, message in messages %}
 
+
+
         <div
+
         class="toast-message"
+
         data-type="{{ category }}">
+
+
 
             {{ message }}
 
+
+
         </div>
+
+
 
     {% endfor %}
 
+
+
 {% endif %}
+
+
 
 {% endwith %}
 
+
+
 <div class="table-header">
+
+
 
     <div class="title-area">
 
+
+
         <span class="title-icon">
+
             📋
+
         </span>
 
+
+
         <h1>
+
             Data Reservasi Studio
+
         </h1>
+
+
 
     </div>
 
+
+
     <a href="{{ url_for('home') }}"
+
        class="header-home">
+
+
 
        Home
 
+
+
     </a>
 
+
+
 </div>
 
-<div class="stats-row single-stat">
 
-    <div class="stat-box">
+
+<div class="stats-row">
+
+
+
+    <div class="stats-row single-stat">
+
         <h3>Total Reservasi</h3>
+
         <span>{{ container|length }}</span>
+
     </div>
 
+
+
 </div>
+
+
 
 <div class="search-area">
 
+
+
     <form method="GET"
+
           action="{{ url_for('index') }}"
+
           class="search-box">
 
+
+
         <input
+
             type="text"
+
             name="keyword"
+
             value="{{ keyword }}"
+
             placeholder="Cari nama, telepon, paket...">
 
+
+
         <button
+
             type="submit"
+
             class="search-btn">
+
+
 
             🔍
 
+
+
         </button>
+
+
 
     </form>
 
+
+
     <a href="{{ url_for('index') }}"
-        class="icon-btn reset-btn">
-        ↺
+
+       class="icon-btn reset-btn">
+
+
+
+       ↺
+
+
+
     </a>
+
+
 
     <a href="{{ url_for('tambah') }}"
-        class="icon-btn add-btn"
-        title="Tambah Reservasi">
 
-        <i class="fa-solid fa-plus"></i>
+       class="icon-btn add-btn">
+
+
+
+       +
+
+
 
     </a>
+
+
 
     <a href="{{ url_for('trash') }}"
-        class="icon-btn trash-btn"
-        title="Arsip Reservasi">
 
-        <i class="fa-solid fa-trash"></i>
+       class="icon-btn trash-btn">
+
+
+
+       🗑
+
+
 
     </a>
 
+
+
 </div>
+
+
 
 <table>
 
+
+
 <tr>
 
+
+
 <th>ID</th>
+
 <th>Nama</th>
+
 <th>Telepon</th>
+
 <th>Paket</th>
+
 <th>Tanggal</th>
+
 <th>Jam</th>
+
 <th>Aksi</th>
 
+
+
 </tr>
+
+
 
 {% for data in container %}
 
+
+
 <tr>
 
+
+
 <td>{{ data.id }}</td>
+
 <td>{{ data.nama }}</td>
+
 <td>{{ data.telepon }}</td>
+
 <td>{{ data.paket }}</td>
+
 <td>{{ data.tanggal }}</td>
+
 <td>{{ data.jam }}</td>
+
+
 
 <td>
 
+
+
 <a href="{{ url_for('ubah', id=data.id) }}"
+
    class="edit-btn">
+
+
 
    Edit
 
+
+
 </a>
 
+
+
 <a href="{{ url_for('hapus', id=data.id) }}"
+
    class="delete-btn"
+
    onclick="return konfirmasiHapus()">
+
+
 
    Hapus
 
+
+
 </a>
+
+
 
 </td>
 
+
+
 </tr>
+
+
 
 {% endfor %}
 
+
+
 {% if container|length == 0 %}
+
+
 
 <tr>
 
+
+
 <td colspan="7" class="empty-data">
+
+
 
     Data tidak ditemukan
 
+
+
 </td>
+
+
 
 </tr>
 
+
+
 {% endif %}
+
+
 
 </table>
 
+
+
 </div>
 
+
+
 <script src="{{ url_for('static',
+
 filename='js/script.js') }}"></script>
 
+
+
 </body>
+
+
 
 </html>

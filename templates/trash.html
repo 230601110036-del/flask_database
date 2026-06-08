@@ -1,149 +1,299 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
+
 
 <meta charset="UTF-8">
 
+
+
 <title>Arsip Reservasi</title>
 
+
+
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+href="{{ url_for('static',
+
+filename='css/style.css') }}">
+
+
 
 </head>
 
+
+
 <body class="table-page">
+
+
 
 <div class="table-container">
 
+
+
 <div class="table-header">
+
+
 
     <div class="title-area">
 
+
+
         <span class="title-icon">
+
             🗑
+
         </span>
 
+
+
         <h1>
+
             Arsip Reservasi
+
         </h1>
+
+
 
     </div>
 
+
+
     <a href="{{ url_for('home') }}"
+
        class="header-home">
+
+
 
        Home
 
+
+
     </a>
 
+
+
 </div>
+
+
 
 <div class="search-area">
 
+
+
 <form method="GET"
+
       action="{{ url_for('trash') }}"
+
       class="search-box">
 
+
+
     <input
+
         type="text"
+
         name="keyword"
+
         value="{{ keyword }}"
+
         placeholder="Cari nama, telepon, paket...">
 
+
+
     <button
+
         type="submit"
+
         class="search-btn">
+
+
 
         🔍
 
+
+
     </button>
+
+
 
 </form>
 
-<a href="{{ url_for('index') }}"
-   class="icon-btn reset-btn"
-   title="Refresh">
 
-   <i class="fa-solid fa-rotate-right"></i>
+
+<a href="{{ url_for('trash') }}"
+
+   class="icon-btn reset-btn">
+
+
+
+   ↺
+
+
+
+</a>
+
+
+
+<a href="{{ url_for('index') }}"
+
+   class="icon-btn add-btn">
+
+
+
+   ↩
+
+
 
 </a>
 
-<a href="{{ url_for('index') }}"
-   class="icon-btn back-btn"
-   title="Kembali">
 
-   <i class="fa-solid fa-arrow-left"></i>
-
-</a>
 
 </div>
+
+
 
 <table>
 
+
+
 <tr>
 
+
+
 <th>ID</th>
+
 <th>Nama</th>
+
 <th>Telepon</th>
+
 <th>Paket</th>
+
 <th>Tanggal</th>
+
 <th>Jam</th>
+
 <th>Aksi</th>
 
+
+
 </tr>
+
+
 
 {% for data in container %}
 
+
+
 <tr>
 
+
+
 <td>{{ data.id }}</td>
+
 <td>{{ data.nama }}</td>
+
 <td>{{ data.telepon }}</td>
+
 <td>{{ data.paket }}</td>
+
 <td>{{ data.tanggal }}</td>
+
 <td>{{ data.jam }}</td>
+
+
 
 <td>
 
-<a href="{{ url_for('restore', id=data.id) }}"
-   class="edit-btn">
 
-   <i class="fa-solid fa-rotate-left"></i>&nbsp;
-   Restore
+
+<a href="{{ url_for(
+
+'restore',
+
+id=data.id) }}"
+
+class="edit-btn">
+
+
+
+♻ Restore
+
+
 
 </a>
 
-<a href="{{ url_for('hapus_permanen', id=data.id) }}"
-   class="delete-btn">
 
-   <i class="fa-solid fa-trash-can"></i>&nbsp;
-   Hapus Permanen
+
+<a href="{{ url_for(
+
+'hapus_permanen',
+
+id=data.id) }}"
+
+class="delete-btn">
+
+
+
+Hapus Permanen
+
+
 
 </a>
+
+
 
 </td>
 
+
+
 </tr>
+
+
 
 {% endfor %}
 
+
+
 {% if container|length == 0 %}
+
+
 
 <tr>
 
+
+
 <td colspan="7" class="empty-data">
+
+
 
     Data tidak ditemukan
 
+
+
 </td>
+
+
 
 </tr>
 
+
+
 {% endif %}
+
+
 
 </table>
 
+
+
 </div>
 
+
+
 </body>
+
 </html>
