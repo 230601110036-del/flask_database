@@ -7,8 +7,7 @@
 <title>Arsip Reservasi</title>
 
 <link rel="stylesheet"
-href="{{ url_for('static',
-filename='css/style.css') }}">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -61,17 +60,19 @@ filename='css/style.css') }}">
 
 </form>
 
-<a href="{{ url_for('trash') }}"
-   class="icon-btn reset-btn">
+<a href="{{ url_for('index') }}"
+   class="icon-btn reset-btn"
+   title="Refresh">
 
-   ↺
+   <i class="fa-solid fa-rotate-right"></i>
 
 </a>
 
 <a href="{{ url_for('index') }}"
-   class="icon-btn add-btn">
+   class="icon-btn back-btn"
+   title="Kembali">
 
-   ↩
+   <i class="fa-solid fa-arrow-left"></i>
 
 </a>
 
@@ -104,21 +105,19 @@ filename='css/style.css') }}">
 
 <td>
 
-<a href="{{ url_for(
-'restore',
-id=data.id) }}"
-class="edit-btn">
+<a href="{{ url_for('restore', id=data.id) }}"
+   class="edit-btn">
 
-♻ Restore
+   <i class="fa-solid fa-rotate-left"></i>&nbsp;
+   Restore
 
 </a>
 
-<a href="{{ url_for(
-'hapus_permanen',
-id=data.id) }}"
-class="delete-btn">
+<a href="{{ url_for('hapus_permanen', id=data.id) }}"
+   class="delete-btn">
 
-Hapus Permanen
+   <i class="fa-solid fa-trash-can"></i>&nbsp;
+   Hapus Permanen
 
 </a>
 
@@ -132,7 +131,7 @@ Hapus Permanen
 
 <tr>
 
-<td colspan="4">
+<td colspan="7" class="empty-data">
 
     Data tidak ditemukan
 

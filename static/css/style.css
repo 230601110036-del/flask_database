@@ -298,38 +298,6 @@ table tr:hover{
     background:#f8f9ff;
 }
 
-.edit-btn{
-
-    background:
-    linear-gradient(
-        135deg,
-        #16a34a,
-        #22c55e
-    );
-
-    padding:10px 18px;
-
-    border-radius:10px;
-
-    font-weight:600;
-}
-
-.delete-btn{
-
-    background:
-    linear-gradient(
-        135deg,
-        #dc2626,
-        #ef4444
-    );
-
-    padding:10px 18px;
-
-    border-radius:10px;
-
-    font-weight:600;
-}
-
 /* ==========================
    TOAST NOTIFICATION
 ========================== */
@@ -696,4 +664,132 @@ table tr:hover{
     font-size:32px;
 
     font-weight:700;
+}
+
+.empty-data{
+
+    text-align:center !important;
+
+    vertical-align:middle;
+
+    padding:50px !important;
+
+    font-size:26px;
+
+    font-weight:600;
+
+    color:#dbe6ff;
+}
+
+.single-stat{
+    justify-content:center;
+}
+
+.single-stat .stat-box{
+    max-width:500px;
+}
+
+.icon-btn{
+    width:62px;
+    height:62px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    color:white;
+    font-size:22px;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.25);
+}
+
+.icon-btn:hover{
+    transform:translateY(-4px) scale(1.05);
+}
+
+.add-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+}
+
+.back-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #8b5cf6
+    );
+}
+
+.trash-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #475569,
+        #64748b
+    );
+}
+
+.reset-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #fbbf24
+    );
+}
+
+.edit-btn,
+.delete-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:110px;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.edit-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    );
+}
+
+.delete-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #dc2626,
+        #ef4444
+    );
+}
+
+.edit-btn:hover,
+.delete-btn:hover{
+    transform:translateY(-3px);
 }
