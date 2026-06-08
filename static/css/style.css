@@ -26,31 +26,23 @@
 
 ========================== */
 
-
-
 body{
-
-
-
     min-height:100vh;
 
-
-
-    background:url("../img/bg.jpg");
-
-
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.35)
+        ),
+        url("../img/bg.jpg");
 
     background-size:cover;
-
     background-position:center;
-
     background-repeat:no-repeat;
+    background-attachment:fixed;
 
-
-
+    overflow-x:hidden;
 }
-
-
 
 .overlay{
 
